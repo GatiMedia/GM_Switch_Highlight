@@ -1,19 +1,22 @@
 Group {
- name GM_Switch_Highlight2
- tile_color 0xff0000ff
- label "\[if \{\[numvalue this.which] == 0\} \{return \[value this.zero_is]\} else \{return \[value this.one_is]\}]\n\[knob tile_color \[ expr \{ \[value which]? 16711935 : 4278190335 \}]]"
- note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ name GM_Switch_Highlight
+ tile_color 0xffff00ff
+ label "\[if \{\[numvalue this.which_highlight] == 0\} \{return \[value this.zero_is]\} else \{return \[value this.one_is]\}]\n\[knob tile_color \[ expr \{ \[value which_highlight]? 16711935 : 4294902015 \}]]"
+ note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
  note_font_size 13
  selected true
- xpos 644
- ypos 246
+ xpos -260
+ ypos -377
  addUserKnob {20 User}
- addUserKnob {41 which T Switch1.which}
+ addUserKnob {41 which_highlight l which T Switch1.which}
  addUserKnob {26 ""}
  addUserKnob {1 zero_is l "0 is"}
  zero_is "on script"
  addUserKnob {1 one_is l "1 is"}
  one_is "on precomp"
+ addUserKnob {26 ""}
+ addUserKnob {22 control1 l "Sat All 0" T "nodes_classes = \[\"Group\"]\n\nfor node in nuke.allNodes(group=nuke.root()):\n    if node.Class() in nodes_classes:\n        try:\n            node\[\"which_highlight\"].setValue(False)\n        except Exception:\n            pass\n" +STARTLINE}
+ addUserKnob {22 control2 l "Set All 1" -STARTLINE T "nodes_classes = \[\"Group\"]\n\nfor node in nuke.allNodes(group=nuke.root()):\n    if node.Class() in nodes_classes:\n        try:\n            node\[\"which_highlight\"].setValue(True)\n        except Exception:\n            pass\n"}
  addUserKnob {26 ""}
  addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
  addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Switch_Highlight© by Attila Gasparetz</font>"}
@@ -22,14 +25,14 @@ Group {
   inputs 0
   name Input1
   xpos 290
-  ypos 422
+  ypos 398
   number 1
  }
  Input {
   inputs 0
   name Input0
   xpos 510
-  ypos 422
+  ypos 398
  }
  Switch {
   inputs 2
