@@ -15,7 +15,7 @@ Group {
  addUserKnob {1 one_is l "1 is"}
  one_is "on precomp"
  addUserKnob {26 ""}
- addUserKnob {22 control1 l "Sat All 0" T "nodes_classes = \[\"Group\"]\n\nfor node in nuke.allNodes(group=nuke.root()):\n    if node.Class() in nodes_classes:\n        try:\n            node\[\"which_highlight\"].setValue(False)\n        except Exception:\n            pass\n" +STARTLINE}
+ addUserKnob {22 control1 l "Set All 0" T "nodes_classes = \[\"Group\"]\n\nfor node in nuke.allNodes(group=nuke.root()):\n    if node.Class() in nodes_classes:\n        try:\n            node\[\"which_highlight\"].setValue(False)\n        except Exception:\n            pass\n" +STARTLINE}
  addUserKnob {22 control2 l "Set All 1" -STARTLINE T "nodes_classes = \[\"Group\"]\n\nfor node in nuke.allNodes(group=nuke.root()):\n    if node.Class() in nodes_classes:\n        try:\n            node\[\"which_highlight\"].setValue(True)\n        except Exception:\n            pass\n"}
  addUserKnob {26 ""}
  addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
